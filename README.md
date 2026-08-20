@@ -1,42 +1,30 @@
-# Análise de Sentimentos com TensorFlow, Keras e Streamlit
+Sentiment Analysis with TensorFlow, Keras, and Streamlit
 
-Projeto de Processamento de Linguagem Natural (NLP) desenvolvido em Python utilizando TensorFlow e Keras para classificar comentários como **positivos** ou **negativos**.
+A Natural Language Processing (NLP) project developed in Python using TensorFlow and Keras to classify text as positive or negative.
 
-O projeto também conta com uma interface web construída com Streamlit para testar previsões em tempo real.
+The project also includes a web interface built with Streamlit, allowing users to test predictions in real time.
 
-![Interface da aplicação](images/preview-ia-analise-de-sentimentos.png)
+Objective
 
-## Objetivo
+Train a neural network capable of identifying the sentiment of a sentence based on previously labeled examples.
 
-Treinar uma rede neural capaz de identificar o sentimento de uma frase a partir de exemplos previamente rotulados.
+Examples:
 
-Exemplos:
-
-| Texto                   | Sentimento |
-| ----------------------- | ---------- |
-| Gostei muito do produto | Positivo   |
-| Atendimento excelente   | Positivo   |
-| Produto ruim            | Negativo   |
-| Não recomendo           | Negativo   |
-
----
-
-## Tecnologias Utilizadas
-
-* Python
-* Pandas
-* NumPy
-* Scikit-Learn
-* TensorFlow
-* Keras
-* Streamlit
-* Jupyter Notebook
-
----
-
-## Estrutura do Projeto
-
-```text
+Text	Sentiment
+I really liked the product	Positive
+Excellent customer service	Positive
+Bad product	Negative
+I don't recommend it	Negative
+Technologies Used
+Python
+Pandas
+NumPy
+Scikit-Learn
+TensorFlow
+Keras
+Streamlit
+Jupyter Notebook
+Project Structure
 ANALISE-DE-SENTIMENTOS
 │
 ├── data
@@ -56,111 +44,72 @@ ANALISE-DE-SENTIMENTOS
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
 
----
-
-## Como Executar
-
-### 1. Clonar o repositório
-
-```bash
-git clone <URL_DO_REPOSITORIO>
+Getting Started
+1. Clone the repository
+git clone <REPOSITORY_URL>
 cd ANALISE-DE-SENTIMENTOS
-```
 
-### 2. Criar ambiente virtual
-
-```bash
+2. Create a virtual environment
 python -m venv venv
-```
 
-### Windows
-
-```bash
+Windows
 venv\Scripts\activate
-```
 
-### Linux/macOS
-
-```bash
+Linux/macOS
 source venv/bin/activate
-```
 
-### 3. Instalar dependências
-
-```bash
+3. Install dependencies
 pip install -r requirements.txt
-```
 
----
-
-## Treinar o Modelo
-
-```bash
+Training the Model
 python src/train.py
-```
 
-O treinamento irá:
 
-* Ler o dataset
-* Dividir os dados em treino e teste
-* Vetorizar os textos
-* Treinar a rede neural
-* Avaliar a acurácia
-* Salvar o modelo em:
+The training process will:
 
-```text
+Load the dataset
+Split the data into training and test sets
+Vectorize the text
+Train the neural network
+Evaluate its accuracy
+Save the trained model to:
 models/modelo_sentimentos.keras
-```
 
----
-
-## Fazer Previsões pelo Terminal
-
-```bash
+Making Predictions from the Terminal
 python src/predict.py
-```
 
-Exemplo de saída:
 
-```text
-Probabilidade: 87.31%
-Positivo
-```
+Example output:
 
----
+Probability: 87.31%
+Positive
 
-## Interface Web com Streamlit
+Web Interface with Streamlit
 
-Para iniciar a aplicação web:
+To start the web application:
 
-```bash
 streamlit run app.py
-```
 
-A interface permite digitar comentários e receber instantaneamente a previsão do modelo, exibindo:
 
-* Probabilidade calculada
-* Classificação positiva ou negativa
-* Resultado em tempo real
+The interface allows users to enter text and instantly receive the model's prediction, including:
 
----
+Calculated probability
+Positive or negative classification
+Real-time results
+Neural Network Architecture
 
-## Arquitetura da Rede Neural
+The model consists of the following layers:
 
-O modelo utiliza:
+TextVectorization
+Embedding
+GlobalAveragePooling1D
+Dense (ReLU)
+Dense (Sigmoid)
 
-* TextVectorization
-* Embedding
-* GlobalAveragePooling1D
-* Dense (ReLU)
-* Dense (Sigmoid)
+Pipeline:
 
-Fluxo:
-
-```text
-Texto
+Text
  ↓
 TextVectorization
  ↓
@@ -172,28 +121,20 @@ Dense (ReLU)
  ↓
 Dense (Sigmoid)
  ↓
-Probabilidade de sentimento positivo
-```
+Positive sentiment probability
 
----
-
-## Conceitos Aplicados
-
-* Processamento de Linguagem Natural (NLP)
-* Vetorização de Texto
-* Embeddings
-* Redes Neurais
-* Classificação Binária
-* Binary Crossentropy
-* Treinamento e Inferência
-* Persistência de Modelos (.keras)
-* Deploy de aplicações com Streamlit
-
----
-
-## Possíveis Melhorias Futuras
-
-* Dataset maior e mais diversificado
-* Classificação em múltiplas categorias
-* Uso de modelos mais avançados (LSTM, GRU ou Transformers)
-* Integração com APIs
+Concepts Applied
+Natural Language Processing (NLP)
+Text Vectorization
+Word Embeddings
+Neural Networks
+Binary Classification
+Binary Crossentropy
+Model Training and Inference
+Model Persistence (.keras)
+Application Deployment with Streamlit
+Possible Future Improvements
+Use a larger and more diverse dataset
+Support multi-class sentiment classification
+Experiment with more advanced models such as LSTM, GRU, or Transformers
+Integrate with external APIs
